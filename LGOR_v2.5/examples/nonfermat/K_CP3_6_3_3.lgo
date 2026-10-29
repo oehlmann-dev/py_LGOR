@@ -1,0 +1,24 @@
+Name = "K_CP3_6_3_3"
+KOrder = 10
+Order =
+Field "1" 1
+Field "2" 2
+Field "3" 3
+Field "4" 2
+Field "5" 2
+SPotTerm  1 10 0 0 0 0
+SPotTerm  -10 8 1 0 0 0
+SPotTerm  10 7 0 1 0 0
+SPotTerm  35 6 2 0 0 0
+SPotTerm  -60 5 1 1 0 0
+SPotTerm  -50 4 3 0 0 0
+SPotTerm  25 4 0 2 0 0
+SPotTerm  100 3 2 1 0 0
+SPotTerm  25 2 4 0 0 0
+SPotTerm  -60 2 1 2 0 0
+SPotTerm  -40 1 3 1 0 0
+SPotTerm  10 1 0 3 0 0
+SPotTerm  -2 0 5 0 0 0
+SPotTerm  15 0 2 2 0 0
+SPotTerm  1 0 0 0 5 0
+SPotTerm  1 0 0 0 0 5

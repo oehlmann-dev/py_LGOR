@@ -1,0 +1,155 @@
+LGOR DEFECT LINES for model G66222
+====================================================================================================
+Tags: [verified] computed here; [literature] quoted standard result; [inferred] argued, not checked by code;
+      [missing] not computed in this version.
+
+STATUS
+  1 odd-label lines (even k) that survive          [verified]    16 of 32 parity patterns
+  1 surviving non-invertible line types            [verified]    63 single + 0 pairs
+  2 self-duality defects (TY)                      [verified]    1: orders 64
+  3 group-theoretical lines                        [verified]    1 integral-subring candidates; permutation block S3
+  4 fixed points of the current group              [verified]    1 sets of factors
+  4 number of simple defects (sum Z^2)             [inferred]    5529600
+  5 invertible surviving lines                     [verified]    phase Z2 x Z4 x Z4 x Z4, 0 anomalous generator(s)
+
+1. SURVIVAL OF VERLINDE LINES IN THE FULL MODEL
+----------------------------------------------------------------------------------------------------
+Factors (N=2 minimal models): x1: k=6, x2: k=6, x3: k=2, x4: k=2, x5: k=2
+Currents: beta_0 = spacetime supercharge (right) / E6 spinor currents (left); beta_i = supercurrent of
+factor i; orbifold: j (LG orbifold by J) phases (1/8, 1/8, 1/4, 1/4, 1/4)
+
+Criterion [literature] (Verlinde lines of a simple-current extension/orbifold; Fuchs-Runkel-Schweigert,
+Boeckenhauer-Evans-Kawahigashi): a line a of the product theory commutes with a current J iff its monodromy
+charge Q_J(a) is an integer.  Physical requirement used here [inferred]: the line must commute with the
+worldsheet supercurrents (s even) and with beta_0, otherwise it rotates the spacetime supercharge or the
+16 of SO(10) inside E6 by a phase.  Monodromy with an orbifold current only decides whether the line
+descends as ONE symmetric line (integer charge) or as a PAIR alpha^+(a), alpha^-(a) that differ by a
+quantum-symmetry line of the orbifold [literature] (alpha-induction).
+
+Lines per factor (su(2)_k label l up to l ~ k-l):
+  x1 (k=6): l=0 (d=1.0000, even); l=1 (d=1.8478, odd); l=2 (d=2.4142, even); l=3 (d=2.6131, odd)
+  x2 (k=6): l=0 (d=1.0000, even); l=1 (d=1.8478, odd); l=2 (d=2.4142, even); l=3 (d=2.6131, odd)
+  x3 (k=2): l=0 (d=1.0000, even); l=1 (d=1.4142, odd)
+  x4 (k=2): l=0 (d=1.0000, even); l=1 (d=1.4142, odd)
+  x5 (k=2): l=0 (d=1.0000, even); l=1 (d=1.4142, odd)
+
+Lines whose su(2) labels are all even (and every line of an odd-k factor, which has an even
+representative) survive with trivial dressing as single symmetric lines [verified].
+Odd su(2) labels sit in the even-k factors x1, x2, x3, x4, x5.  The parity patterns
+(which of these factors carry an odd l) that can be dressed form a group [verified]:
+  commuting with supercurrents and beta_0: 16 of 32 patterns; generators:
+    odd l in x5: single line; a dressing (m,s) per factor: [(0, 0), (14, 0), (0, 0), (0, 0), (1, 0)]
+    odd l in x4: single line; a dressing (m,s) per factor: [(0, 0), (14, 0), (0, 0), (1, 0), (0, 0)]
+    odd l in x3: single line; a dressing (m,s) per factor: [(0, 0), (14, 0), (1, 0), (0, 0), (0, 0)]
+    odd l in x1, x2: single line; a dressing (m,s) per factor: [(1, 0), (15, 0), (0, 0), (0, 0), (0, 0)]
+  also local with all orbifold currents (single symmetric lines): 16 patterns
+
+Surviving non-invertible line types (su(2) class vectors with d > 1, up to invertible dressing) [verified]:
+  single symmetric lines: 63;  alpha^+/alpha^- pairs: 0
+
+Fusion [verified] (su(2)_k fusion in l, addition of (m, s); labels (l,m,s) canonical, (0,m,s) invertible):
+  k=2: (1, 1, 0) x (1, 1, 0) = (0, 2, 0) + (0, 6, 2)
+  k=6: (1, 1, 0) x (1, 1, 0) = (0, 2, 0) + (2, 2, 0)
+  k=6: (1, 1, 0) x (2, 0, 0) = (1, 1, 0) + (3, 1, 0)
+  k=6: (1, 1, 0) x (3, 1, 0) = (2, 2, 0) + (2, 10, 2)
+  k=6: (2, 0, 0) x (2, 0, 0) = (0, 0, 0) + (2, 0, 0) + (2, 8, 2)
+  k=6: (2, 0, 0) x (3, 1, 0) = (1, 1, 0) + (3, 1, 0) + (1, 9, 2)
+  k=6: (3, 1, 0) x (3, 1, 0) = (0, 2, 0) + (2, 2, 0) + (2, 10, 2) + (0, 10, 2)
+  example X = ((0, 0, 0), (0, 14, 0), (0, 0, 0), (0, 0, 0), (1, 1, 0)) (d = 1.4142):  X x Xbar has 2 simple components, all commuting with supercurrents and beta_0: True [verified]
+  example X = ((0, 0, 0), (0, 14, 0), (0, 0, 0), (1, 1, 0), (0, 0, 0)) (d = 1.4142):  X x Xbar has 2 simple components, all commuting with supercurrents and beta_0: True [verified]
+  example X = ((0, 0, 0), (0, 14, 0), (1, 1, 0), (0, 0, 0), (0, 0, 0)) (d = 1.4142):  X x Xbar has 2 simple components, all commuting with supercurrents and beta_0: True [verified]
+  example X = ((1, 1, 0), (1, 15, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)) (d = 3.4142):  X x Xbar has 4 simple components, all commuting with supercurrents and beta_0: True [verified]
+
+Not done here [missing]: eigenvalues of dressed lines on the LGOR massless states (for undressed
+lines see `lgor tdl`); lines that do not come from Verlinde lines of the product (see sections 2-4).
+
+2. SELF-DUALITY (TAMBARA-YAMAGAMI) DEFECTS FROM HALF GAUGING
+----------------------------------------------------------------------------------------------------
+Test [verified]: the torus partition function of the gauged theory (simple-current invariant, all states,
+not only massless; NS sector, the R sector follows by spectral flow [inferred]) equals that of C with an
+automorphism phi applied to the left movers.  phi: identity or left N=2 charge conjugation omega, times
+12 permutations of identical factors.
+Convention: Kreuzer-Schellekens invariants with symmetric torsion X = B/2.  It reproduces the Greene-Plesser
+mirrors of LGOR models (unit tests) [verified]; that LGOR's orbifolds carry exactly this torsion is [inferred].
+
+(a) Gauging a subgroup H of the phase symmetries x_f -> exp(2 pi i a_f/n_f) x_f, sum a_f/n_f in Z,
+    modulo the orbifold group: Q = Z4 x Z4 x Z4 (order 64) [verified]
+    subgroups H scanned: 128
+(b) Gauging the quantum symmetry dual to a set of the .lgo orbifold generators (undoing that orbifold):
+    the model has no orbifold generators besides J
+
+Self-dual gaugings found: 1
+  |H| = 64, H generated by the phases (0, 0, 1/4, 0, 3/4), (0, 0, 0, 1/4, 3/4), (0, 1/4, 0, 0, 3/4)
+     gauged theory = phi(C) for phi in {omega} [verified]
+     duality defect D = phi o (half gauging of H): <D> = sqrt(64) = 8.0000, D x Dbar = sum_(h in H) eta_h [literature] (Tambara-Yamagami; Choi-Cordova-Hsin-Lam-Shao 2021)
+     with omega: D flips the left N=2 charges, i.e. exchanges 27 <-> 27bar in 4D [inferred]
+     |H| is a perfect square: TY(H) may be group-theoretical and gaugeable, depending on the bicharacter chi and tau [missing]
+     self-conjugacy of D, bicharacter chi and sign tau of the TY category [missing]
+
+LGOR cross-check of the massless spectra (independent of the modular-invariant test):
+  H = <(0, 0, 1/4, 0, 3/4), (0, 0, 0, 1/4, 3/4), (0, 1/4, 0, 0, 3/4)>: C has (27, 27bar) = (86, 2), C/H has (2, 86); all massless states of C/H = phi(states of C): yes for 1 of 1 phi [verified]
+     H-invariant massless states of C: 58 of 1138 (D maps them to phi-images with factor sqrt|H| and annihilates the others [literature])
+
+3. GROUP-THEORETICAL LINES
+----------------------------------------------------------------------------------------------------
+(a) Integral fusion subcategories generated by surviving lines, compared with Rep(G):
+    numpy not available: character data of fusion rings not computed [missing]
+    l=1 in x3 (k=2) x l=1 in x4 (k=2) (surviving as X = ((0, 0, 0), (0, 12, 0), (1, 1, 0), (1, 1, 0), (0, 0, 0))): su(2) part of the generated subcategory: rank 5, dims {1.0: 4, 2.0: 1}, global dim 8.0
+    Whether the category (not just the fusion ring) is Rep(G): F-symbols not compared [missing]
+
+(b) Permutation symmetries of identical factors and the group-theoretical categories C(G, K):
+    largest block of identical factors: k=2, 3 factors -> G = S3 permutes them
+    (a symmetry of the Fermat model if the orbifold group is permutation invariant [inferred])
+    gauging K in C gives C/K, whose lines form C(G, K) [literature] (Ostrik; Bhardwaj-Tachikawa);
+    spectrum of the permutation orbifold C/K [missing] (LGOR has no permutation orbifolds); anomaly of K [missing] (assumed trivial)
+    K = <(2 3)> = Z2: rank 3, dims {1.0: 2, 2.0: 1}, non-invertible 1, global dim 6 (= |G|) [verified]
+        [e]0 x [(1 2)]0 = [(1 2)]0
+        [e]1 x [(1 2)]0 = [(1 2)]0
+        [(1 2)]0 x [(1 2)]0 = [e]0 + [e]1 + [(1 2)]0
+    K = <(1 2 3)> = Z3: rank 6, dims {1.0: 6}, non-invertible 0, global dim 6 (= |G|) [verified]
+    K = G = S3: numpy is needed for characters of non-abelian groups [missing]
+
+4. LINES PRESERVING THE CHIRAL ALGEBRAS (alpha-induction, simple-current formulas)
+----------------------------------------------------------------------------------------------------
+Classification [literature] (Boeckenhauer-Evans-Kawahigashi; Fuchs-Runkel-Schweigert): for a simple-current
+extension/orbifold every Verlinde line a of the product gives alpha^+(a) and alpha^-(a); alpha^+(a) = alpha^-(a)
+(a genuine Verlinde line of the extended theory) iff a is local with all currents.  One of alpha^+/alpha^-
+preserves the left, the other the right extended algebra; each fuses like the product: alpha(a)alpha(b) = alpha(ab).
+Heterotic reading [inferred]: local with beta_0 and beta_i -> preserves spacetime SUSY and E6; lines non-local
+only with orbifold currents come as alpha^+/alpha^- pairs differing by a quantum-symmetry line (section 1).
+
+Fixed points [verified]: the current group contains the field-identification shift on factors
+  x1, x2: labels with l = k/2 there are fixed; such orbits split into several
+  lines (fixed-point resolution) [missing]; counts below then are lower bounds [inferred]
+
+Internal (2,2) theory (LG orbifold by J and the .lgo group, NS-NS sector): number of simple topological
+defects preserving the bosonic chiral algebra of every factor on both sides = sum_(ij) Z_ij^2 = 5529600 [verified]
+  (formula [literature] Fuchs-Runkel-Schweigert; valid without fixed points; NS Verlinde lines of the product: 5419008)
+Explicit fusion of all of these (non-local alpha^+ alpha^- products, bimodule lines) [missing]; fusion of alpha^+ and of alpha^- separately = product fusion [literature]
+
+5. F-SYMBOLS AND ANOMALIES
+----------------------------------------------------------------------------------------------------
+k = 2: su(2)_2 = Ising: sigma (d = sqrt 2) and the Z2 line eps; TY(Z2) [literature]
+    su(2)_2 F-symbols (quantum 6j, unitary gauge): pentagon satisfied to 6.7e-16 on random samples [verified]
+    Frobenius-Schur indicators of l = 0..2: [1, -1, 1] [verified]
+    algebra objects beyond the trivial one: D-type 1 + L_2 (Z2 gauging; not commutative) [literature]
+    the full su(2)_k line category has non-integer dimensions: no fiber functor, cannot be gauged as a whole [literature]
+k = 6: su(2)_6 (Z2 simple current with spin 6/4) [literature]
+    su(2)_6 F-symbols (quantum 6j, unitary gauge): pentagon satisfied to 2.0e-15 on random samples [verified]
+    Frobenius-Schur indicators of l = 0..6: [1, -1, 1, -1, 1, -1, 1] [verified]
+    algebra objects beyond the trivial one: D-type 1 + L_6 (Z2 gauging; not commutative) [literature]
+    the full su(2)_k line category has non-integer dimensions: no fiber functor, cannot be gauged as a whole [literature]
+
+Invertible Verlinde lines that survive (l = 0: phases (0,2a,0) and phase x (-1)^F_f (0,2a,2)):
+  group modulo the internal currents: Z2 x Z4 x Z4 x Z4 [verified]
+  (lines differing by a current with spacetime part act as each other times spacetime fermion number [inferred])
+  generator ((0, 0, 0), (0, 8, 0), (0, 0, 0), (0, 0, 0), (0, 0, 2)): order 2, spin h = 1/2, N h in Z -> anomaly free [verified] (criterion [literature])
+  generator ((0, 0, 0), (0, 12, 0), (0, 2, 0), (0, 0, 0), (0, 0, 0)): order 4, spin h = 1/4, N h in Z -> anomaly free [verified] (criterion [literature])
+  generator ((0, 0, 0), (0, 4, 0), (0, 0, 0), (0, 0, 0), (0, 2, 2)): order 4, spin h = 3/4, N h in Z -> anomaly free [verified] (criterion [literature])
+  generator ((0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 2, 0), (0, 2, 2)): order 4, spin h = 0, N h in Z -> anomaly free [verified] (criterion [literature])
+  mixed anomalies between generators are covered by the criterion only on this basis [inferred]
+
+Duality defects of section 2: see the gaugeability statement there [literature]; TY data chi, tau [missing]
+F-symbols of dressed product lines (su(2)_k F x abelian 3-cocycles of the (m,s) parts) [missing]
+
+written to examples/defects/G66222.defects.txt
