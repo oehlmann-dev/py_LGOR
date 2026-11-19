@@ -1,0 +1,13 @@
+Name = "K_D8_5_5_5_unreduced"
+KOrder = 14
+Order =
+Field "1" 2
+Field "2" 6
+Field "3" 2
+Field "4" 2
+Field "5" 2
+SPotTerm  1 7 0 0 0 0
+SPotTerm  1 1 2 0 0 0
+SPotTerm  1 0 0 7 0 0
+SPotTerm  1 0 0 0 7 0
+SPotTerm  1 0 0 0 0 7

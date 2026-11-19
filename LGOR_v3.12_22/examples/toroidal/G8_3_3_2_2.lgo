@@ -1,0 +1,13 @@
+Name = "G8_3_3_2_2"
+KOrder = 20
+Order = 
+Field "1" 2
+Field "2" 4
+Field "3" 4
+Field "4" 5
+Field "5" 5
+SPotTerm  1 10 0 0 0 0
+SPotTerm  1 0 5 0 0 0
+SPotTerm  1 0 0 5 0 0
+SPotTerm  1 0 0 0 4 0
+SPotTerm  1 0 0 0 0 4

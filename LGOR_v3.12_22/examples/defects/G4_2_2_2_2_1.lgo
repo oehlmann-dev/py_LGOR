@@ -1,0 +1,17 @@
+Name = "G4_2_2_2_2_1"
+KOrder = 12
+Order = 
+Field "1" 2
+Field "2" 3
+Field "3" 3
+Field "4" 3
+Field "5" 3
+Field "6" 4
+Field "7" 6
+SPotTerm  1 6 0 0 0 0 0 0
+SPotTerm  1 0 4 0 0 0 0 0
+SPotTerm  1 0 0 4 0 0 0 0
+SPotTerm  1 0 0 0 4 0 0 0
+SPotTerm  1 0 0 0 0 4 0 0
+SPotTerm  1 0 0 0 0 0 3 0
+SPotTerm  1 0 0 0 0 0 0 2

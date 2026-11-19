@@ -1,0 +1,17 @@
+Name = "K_E7_E7_E7_1"
+KOrder = 9
+Order =
+Field "1" 3
+Field "2" 2
+Field "3" 3
+Field "4" 2
+Field "5" 3
+Field "6" 2
+Field "7" 3
+SPotTerm  1 3 0 0 0 0 0 0
+SPotTerm  1 1 3 0 0 0 0 0
+SPotTerm  1 0 0 3 0 0 0 0
+SPotTerm  1 0 0 1 3 0 0 0
+SPotTerm  1 0 0 0 0 3 0 0
+SPotTerm  1 0 0 0 0 1 3 0
+SPotTerm  1 0 0 0 0 0 0 3

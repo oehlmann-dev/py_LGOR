@@ -1,0 +1,13 @@
+Name = "G66222"
+KOrder = 8
+Order = 
+Field "1" 1
+Field "2" 1
+Field "3" 2
+Field "4" 2
+Field "5" 2
+SPotTerm  1 8 0 0 0 0
+SPotTerm  1 0 8 0 0 0
+SPotTerm  1 0 0 4 0 0
+SPotTerm  1 0 0 0 4 0
+SPotTerm  1 0 0 0 0 4
