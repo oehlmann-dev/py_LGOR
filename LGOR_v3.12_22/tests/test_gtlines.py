@@ -7,7 +7,7 @@ from lgor.model import Model
 from lgor.gtlines import groups
 
 ROOT = Path(__file__).resolve().parents[1]
-Z6 = Path("/mnt/project-files/gepner_survey/toroidal_candidates/z6II/runs/Z6II_gepner.lgo")
+Z6 = ROOT / "examples" / "toroidal" / "Z6II_gepner.lgo"
 KS = ROOT / "examples" / "nonfermat" / "K_CP2_2_CP2_2_CP2_2_3.lgo"
 
 
@@ -72,7 +72,7 @@ def test_gtsurvey_small(tmp_path):
     import shutil
     import subprocess
     import sys
-    src = Path("/mnt/project-files/gepner_survey/models/G8_3_3_2_2.lgo")
+    src = ROOT / "examples" / "toroidal" / "G8_3_3_2_2.lgo"
     if not src.exists():
         return
     shutil.copy(src, tmp_path)
