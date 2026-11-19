@@ -1,0 +1,13 @@
+Name = "G44441"
+KOrder = 6
+Order = 
+Field "1" 1
+Field "2" 1
+Field "3" 1
+Field "4" 1
+Field "5" 2
+SPotTerm  1 6 0 0 0 0
+SPotTerm  1 0 6 0 0 0
+SPotTerm  1 0 0 6 0 0
+SPotTerm  1 0 0 0 6 0
+SPotTerm  1 0 0 0 0 3
