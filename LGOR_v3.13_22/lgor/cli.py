@@ -646,6 +646,19 @@ def cmd_hetorbifold(args):
         print()
 
 
+def cmd_fixedpoints(args):
+    from . import fixedpoints
+    prefix = args.prefix
+    for ext in (".states.csv", ".lgor.json", ".lgo"):
+        if prefix.endswith(ext):
+            prefix = prefix[: -len(ext)]
+    text, _ = fixedpoints.run(prefix, args.blocks, args.twist, rsummary=args.rsummary)
+    print(text)
+    if args.out:
+        open(args.out, "w").write(text + "\n")
+        print("wrote", args.out)
+
+
 def cmd_grouplines(args):
     from . import grouplines as gl
     out = []
@@ -879,6 +892,16 @@ def main(argv=None):
     ho.add_argument("twists", nargs="+", help="Z3, Z4, Z6-I, Z6-II, Z7, ... or a twist like 1/6,1/3,-1/2")
     ho.add_argument("-o", "--out", help="folder for hetorb_NAME.{txt,states.csv,states.tex}")
     ho.set_defaults(func=cmd_hetorbifold)
+    fx = sub.add_parser("fixedpoints", help="3.13: toroidal LGO vs geometric T6/Z_N state by state: orbifold sector of "
+                        "every state, Rep(S3)/A4 fixed points of the C (G2) block, B-block label test, R-symmetry "
+                        "quartets and fit to plane rotations x gauge")
+    fx.add_argument("prefix", help="LGOR run prefix of the Fermat model (PREFIX.states.csv, .lgor.json, .lgo)")
+    fx.add_argument("--blocks", required=True, help="field indices per block, 0-based, e.g. '0,3;1,2;4,5,6'")
+    fx.add_argument("--twist", required=True, help="orbifold twist in BLOCK order, e.g. '1/6,-1/2,1/3'")
+    fx.add_argument("--rsummary", help="summary file with the line 'Q_R = a k0 - b q- mod M' (e.g. the run with "
+                    "the torus moduli on); enables the R-symmetry checks")
+    fx.add_argument("-o", "--out")
+    fx.set_defaults(func=cmd_fixedpoints)
 
     gq = sub.add_parser("grouplines", help="(3.7 name, c_hat = 1 only; use gtlines) group-theoretical (space-group / class-algebra) lines of c=3 Fermat blocks "
                         "from 2D twisted-twined indices, TFT-certified, with their action under the gauged group")

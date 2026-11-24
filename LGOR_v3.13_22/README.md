@@ -1,6 +1,6 @@
-# LGOR 3.12.2, (2,2) edition (Python)
+# LGOR 3.13.0, (2,2) edition (Python)
 
-This is the **(2,2)-only edition** of LGOR 3.12.2. It keeps everything for heterotic (2,2) Landau–Ginzburg
+This is the **(2,2)-only edition** of LGOR 3.13.0. It keeps everything for heterotic (2,2) Landau–Ginzburg
 orbifolds with standard embedding: spectra, symmetries, mirrors, deformations, Verlinde and defect lines,
 group-theoretical lines (`gtlines`, `gtclosure`, `gtsurvey`), `newlines`/`discfull`, toroidal orbifolds and
 `hetorbifold`. All (0,2) features of the full version were removed: `spectrum02`, `symmetries02`, `flatness02`,
@@ -9,6 +9,23 @@ group-theoretical lines (`gtlines`, `gtclosure`, `gtsurvey`), `newlines`/`discfu
 `gradedring`), their tests and `examples02/`. Version notes below that refer to removed (0,2) commands are
 historical.
 
+
+**New in 3.13 (2026-11-24, Z6-II symmetry dictionary thread):** `fixedpoints PREFIX --blocks B --twist V [--rsummary
+FILE] [-o OUT]` (`lgor/fixedpoints.py`): toroidal LGO (blocks A=(1)^3, B=(2)^2, C=(4)(1)) against the geometric
+heterotic T6/Z_N (standard embedding), state by state at the level of charge classes:
+1. orbifold sector of every LGOR state (block charges r_b = k v_b mod 1, +1/2 for singlets);
+2. C (G2) block: Rep(S3) class of the k=4 factor vs the orbifold count per G2 fixed-point orbit (origin/pair);
+3. A4 origin/triple split of the C-block Z2-twisted sector (holomorphic xy +- z x^3 pairing rule [inferred]) vs the
+   orbifold per class;
+4. B block: label test for g = i^{4(q_x-q_y)} (trivial on B-untwisted sectors, 2+2 on fixed-point quartets);
+5. R-symmetry: quartet pattern {(r,e),(r+M/2,e),(r,-e),(r,-e)} of a 90 degree rotation, and an exact fit of LGOR's
+   Q_R to plane rotations x U(1)^2 gauge x triality x quantum Z_N, with orbifold fermion R-charges
+   R_b = -q_sh,b + N_b - Nbar_b and a gaugino check.
+`hetorb`-based helper `fixedpoints.orbifold_fermions(v, plane_trace)` gives per-fermion plane R-charges and
+fixed-point-orbit-resolved degeneracies. Z6-II (tests/test_fixedpoints.py, data tests/data_313): sectors 18/96/51/64/48,
+Rep(S3) per orbit exact, A4 theta^3 singlets 12/40 = orbifold, g passes, LGOR Z72^R = rho_B^-1 rho_A x gauge x (-1)^F
+(only this exponent pair fits). Limitations: three blocks, one Z2-twisted B block per sector, C-block rotation exponent
+fixed to 0.
 
 **3.12.2 (2026-11-19):** solver fix in `gtlines` certification (`lgor/gtlines/tft.py`): with more than 4 unknowns
 the orbit bases were found by random-start Gauss-Newton on the full condition set, which missed solutions at large
