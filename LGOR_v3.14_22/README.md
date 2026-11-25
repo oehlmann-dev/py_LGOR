@@ -1,6 +1,6 @@
-# LGOR 3.13.0, (2,2) edition (Python)
+# LGOR 3.14.0, (2,2) edition (Python)
 
-This is the **(2,2)-only edition** of LGOR 3.13.0. It keeps everything for heterotic (2,2) Landau–Ginzburg
+This is the **(2,2)-only edition** of LGOR 3.14.0. It keeps everything for heterotic (2,2) Landau–Ginzburg
 orbifolds with standard embedding: spectra, symmetries, mirrors, deformations, Verlinde and defect lines,
 group-theoretical lines (`gtlines`, `gtclosure`, `gtsurvey`), `newlines`/`discfull`, toroidal orbifolds and
 `hetorbifold`. All (0,2) features of the full version were removed: `spectrum02`, `symmetries02`, `flatness02`,
@@ -8,6 +8,34 @@ group-theoretical lines (`gtlines`, `gtclosure`, `gtsurvey`), `newlines`/`discfu
 `couplings02`, `select02`, `twisted02`, `rcft02`, `lines02`, `gray02`, `gray_ia`, `moduli02`, `glsm_moduli`,
 `gradedring`), their tests and `examples02/`. Version notes below that refer to removed (0,2) commands are
 historical.
+
+**New in 3.14 (2026-11-24/25, Z6-II thread):**
+1. `lgor/mfcat` – B-type defect lines of LG blocks as graded matrix factorisations of W(x) − W(x′): defects,
+   cones, Hom spaces, bulk action on RR ground states, simplicity, and a realiser that writes gtlines lines as bound
+   states. `mfcat/search.py`: general numerical MF search (any rank/grading), Fourier (O(2) rotation) defects,
+   rank-one/Verlinde tensor defects, phase-twist closure. `realise_block(ns, search=True)`: (6,3) 7/7 lines realised
+   as simple bound states; (4,4) 16/24 (rest: index-2 lattice obstruction, orbifold-only objects [inferred]).
+   See lgor/mfcat/README.md.
+2. `lgor/gtlines/heisenberg.py` – Heisenberg orbit lines: theta-orbit sums of Weyl operators X_u Z_v (fixed-point
+   translations and labels) lifted to the block chiral ring; commuting orbits = the certified Rep(G) lines (used to
+   fix the orbit-vector normalisation), non-commuting orbits = new lines. `gtclosure BLOCK --complete`: fusion
+   closure with the full phase x permutation group, the Verlinde lines of the factors and the Heisenberg lines, exact
+   non-negative integer decompositions by MILP (needs scipy). Results [verified on the chiral ring]:
+   * (6,3): the A4 sector has 5 theta-orbits, 3 commuting (= the 3 A4 lines) and 2 non-commuting (d = 3, eigenvalues
+     ±i√3 on the theta^3 states). Every product A4 x A4^g (72 with all phase conjugates) = A4^g' + 2 H; H x H-bar =
+     A4 + A4' + A4''; all products of H with known lines decompose. The block closes.
+     H is realised as the simple MF bound state Cone(P_{1,2}(x1)P_{1}(x4) -> P_{0,5}(x1)P_{0}(x4)) of rank-one
+     factorisations, vacuum eigenvalue 3 (tests/test_heisenberg.py) [verified on the block chiral ring].
+   * (4,4): closes already with invertibles + Verlinde; all Heisenberg orbits commute (nothing new).
+   * `clifford_lines` / `test_candidates`: theta-orbit sums of Clifford (Weil/Fourier) elements on the fixed points
+     as further candidates, tested for rigidity and closure. (6,3): 1344 candidates, 16 already known, the other 1328
+     fail rigidity (L x L-bar does not contain 1); (4,4): none (no pointwise-fixed sector in the D4 candidate).
+   * Other candidate types checked: Rep(SL(2,3)) = discrete-torsion/projective A4 lines refuted by the block TFT;
+     non-consecutive rank-one factorisations act on the chiral ring as sums of phases [inferred: no new rule].
+   Caveats: action outside the fixed-point sectors set to d on class-e states and 0 on rotation classes [inferred];
+   the phase of the Weyl operators (±1, ±i) is selected by the closure (only +i is used).
+
+(`gtclosure --complete` needs scipy.)
 
 
 **New in 3.13 (2026-11-24, Z6-II symmetry dictionary thread):** `fixedpoints PREFIX --blocks B --twist V [--rsummary

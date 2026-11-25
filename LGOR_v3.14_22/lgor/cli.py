@@ -713,7 +713,11 @@ def cmd_gtclosure(args):
     out = []
     for b in args.blocks:
         ns = tuple(int(x) for x in b.split(","))
-        txt, _ = closure_report(ns, nmax=args.nmax)
+        if getattr(args, "complete", False):
+            from .gtlines.heisenberg import completed_closure
+            txt, _ = completed_closure(ns, nmax=args.nmax, heis=not args.no_heis)
+        else:
+            txt, _ = closure_report(ns, nmax=args.nmax)
         out.append(txt)
     txt = "\n\n".join(out)
     print(txt)
@@ -934,6 +938,9 @@ def main(argv=None):
                         "products that need simple lines outside the certified list")
     gc.add_argument("blocks", nargs="+", help="Fermat block exponents, e.g. 6,3 4,4")
     gc.add_argument("--nmax", type=int, default=4)
+    gc.add_argument("--complete", action="store_true", help="3.14: add the full phase x permutation group, the "
+                    "Verlinde lines of the factors and the Heisenberg orbit lines; exact MILP decompositions (scipy)")
+    gc.add_argument("--no-heis", action="store_true", help="with --complete: leave out the Heisenberg lines")
     gc.add_argument("-o", "--out")
     gc.set_defaults(func=cmd_gtclosure)
 
@@ -956,6 +963,9 @@ def main(argv=None):
         q.add_argument("--max-exponent", type=int, default=12, help="mfdefects: skip factors with larger exponent")
         q.add_argument("-o", "--out", default=None)
         q.set_defaults(func=cmd_newlines, only=only)
+
+    from .mfcat.cli import add_parser as _mfcat_add
+    _mfcat_add(sub)
 
     mlp = sub.add_parser("mirrorlines", help="build the grouplines lines on both sides of a mirror pair (B-type on the "
                          "Jacobian ring, A-type on twisted sectors via FJRW/Chiodo) and check that they agree")
